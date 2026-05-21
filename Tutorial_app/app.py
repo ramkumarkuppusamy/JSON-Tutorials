@@ -10,6 +10,8 @@ app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
 
 db = SQLAlchemy(app)
 
+with app.app_context():
+    db.create_all()
 class User(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
